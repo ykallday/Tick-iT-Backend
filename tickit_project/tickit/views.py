@@ -28,6 +28,6 @@ class ArtistDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
 
-class TicketDetail(generics.ListCreateAPIView):
+class TicketList(generics.ListCreateAPIView):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer

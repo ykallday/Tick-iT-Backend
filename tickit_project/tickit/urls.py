@@ -9,7 +9,7 @@ urlpatterns = [
     path('events/<int:pk>', views.EventDetail.as_view(), name='event_detail'),
     path('artists/', views.ArtistList.as_view(), name='artist_list'),
     path('artists/<int:pk>', views.ArtistDetail.as_view(), name='artist_detail'),
-    path('ticket', views.TicketDetail.as_view(), name='ticket_detail'),
+    path('ticket/', views.TicketList.as_view(), name='ticket_list')
 
 ]
 
