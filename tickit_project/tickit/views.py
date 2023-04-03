@@ -1,6 +1,10 @@
+from django.http import HttpResponse
+from django.shortcuts import render
 from rest_framework import generics
 from .serializers import VenueSerializer, EventSerializer, ArtistSerializer
 from .models import Venue, Event, Artist
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 class VenueList(generics.ListCreateAPIView):
     queryset = Venue.objects.all()
@@ -25,3 +29,6 @@ class ArtistList(generics.ListCreateAPIView):
 class ArtistDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
+
+def index(request):
+    return render(request, 'index2.html')
