@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Venue, Event, Artist
+from .models import Venue, Event, Artist, Ticket
 
 
 class ArtistSerializer(serializers.HyperlinkedModelSerializer):
@@ -34,5 +34,18 @@ class VenueSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
        model = Venue
        fields = ('id', 'venue_url', 'name', 'address', 'phone', 'image_url', 'website_url', 'social_url', 'event')
+
+
+
+class TicketSerializer(serializers.HyperlinkedModelSerializer):
+
+    event = serializers.HyperlinkedRelatedField(
+        view_name='event_detail',
+        read_only=True
+    )
+
+    class Meta:
+       model = Ticket
+       fields = ('id', 'show', 'name', 'quantity', 'credit', 'exp', 'zipcode', 'ccv', 'address','event')
 
 

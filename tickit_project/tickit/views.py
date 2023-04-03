@@ -1,6 +1,6 @@
 
-from .serializers import ArtistSerializer, EventSerializer, VenueSerializer
-from .models import Venue, Event, Artist
+from .serializers import ArtistSerializer, EventSerializer, VenueSerializer, TicketSerializer
+from .models import Venue, Event, Artist,Ticket
 from rest_framework import generics
 # Create your views here.
 
@@ -27,3 +27,7 @@ class ArtistList(generics.ListCreateAPIView):
 class ArtistDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
+
+class TicketDetail(generics.ListCreateAPIView):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer

@@ -54,8 +54,15 @@ class Artist(models.Model):
 
 class Ticket (models.Model):
     show = models.CharField(max_length = 200)
-    name = models.CharField(max_length = 100)
+    name = models.CharField(max_length = 100, null=True, blank=True)
     quantity = models.IntegerField(default = 1)
+    credit = models.CharField(max_length = 19, null=True, blank=True)
+    zipcode = models.CharField(max_length = 30, null=True, blank=True)
+    exp = models.CharField(max_length = 5, null=True, blank=True),
+    ccv = models.IntegerField(null=True, blank=True)
+    address = models.TextField(null=True, blank=True)
     
     def __str__(self):
         return self.name
+    def post(self, request):
+        return self.list(request)
