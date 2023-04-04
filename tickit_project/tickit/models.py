@@ -58,8 +58,8 @@ class Ticket (models.Model):
     quantity = models.IntegerField(default = 1)
     credit = models.CharField(max_length = 19, null=True, blank=True)
     zipcode = models.CharField(max_length = 30, null=True, blank=True)
-    exp = models.CharField(max_length = 5, null=True, blank=True),
-    ccv = models.IntegerField(null=True, blank=True)
+    exp = models.CharField(max_length = 5, blank=True)
+    ccv = models.CharField(max_length = 4, null=True, blank=True)
     address = models.TextField(null=True, blank=True)
     
     def __str__(self):

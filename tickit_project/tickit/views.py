@@ -2,6 +2,7 @@
 from .serializers import ArtistSerializer, EventSerializer, VenueSerializer, TicketSerializer
 from .models import Venue, Event, Artist,Ticket
 from rest_framework import generics
+from rest_framework.permissions import AllowAny
 # Create your views here.
 
 class VenueList(generics.ListCreateAPIView):
@@ -29,5 +30,11 @@ class ArtistDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ArtistSerializer
 
 class TicketList(generics.ListCreateAPIView):
+    permission_classes = [AllowAny]
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
+
+# class TicketDetail(generics.RetrieveUpdateDestroyAPIView):
+#     permission_classes = [AllowAny]
+#     queryset = Ticket.objects.all()
+#     serializer_class = TicketSerializer
